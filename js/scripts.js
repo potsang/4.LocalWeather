@@ -52,7 +52,7 @@ var weatherIcon = [
   "https://c2.staticflickr.com/9/8723/28815069705_7783967da7_t.jpg",
   "https://c1.staticflickr.com/9/8720/28709562072_04915e9567_t.jpg",
   "https://c5.staticflickr.com/9/8680/28783355716_0fd2bc046f_t.jpg"
-]
+];
 
 var iconNotAvailable = "https://c8.staticflickr.com/9/8782/28200140343_6fd8c04a46_t.jpg";
 
