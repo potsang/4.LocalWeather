@@ -82,11 +82,18 @@ function getBodyImageUrl(temp, unit) {
   }
 }
 
-$(document).ready(function() {
-  $.get("http://ipinfo.io", function(response) {
-    loadWeather(response.loc, tempUnit);
-  }, "jsonp");
+function loadWeatherWithCurrentLocation() {
+  $.getJSON('https://freegeoip.net/json/') 
+       .done (function(location)
+       {
+          var loc = location.latitude + "," + location.longitude;
+          loadWeather(loc, tempUnit);
+       });  
+}
 
+$(document).ready(function() {
+  loadWeatherWithCurrentLocation();
+  
   $('[data-toggle="tooltip"]').tooltip({
     trigger: 'hover'
   });
@@ -96,9 +103,8 @@ $(document).ready(function() {
       tempUnit = "c";
     else if (tempUnit == "c")
       tempUnit = "f";
-    $.get("http://ipinfo.io", function(response) {
-      loadWeather(response.loc, tempUnit);
-    }, "jsonp");
+    
+    loadWeatherWithCurrentLocation();
   });
 });
 
